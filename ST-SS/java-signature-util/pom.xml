@@ -1,0 +1,86 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>eu.surething_project.signature.util</groupId>
+  <artifactId>surething-signature-util</artifactId>
+  <version>0.0.1</version>
+  <name>SureThing java-signature-util</name>
+  <packaging>jar</packaging>
+  <description>SureThing Java Signature Util Library</description>
+  
+  
+  <properties>
+  		<!-- compiler properties -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <version.java>8</version.java>
+        
+        <!-- maven properties -->
+        <version.maven-enforcer-plugin>1.4.1</version.maven-enforcer-plugin>
+        <version.maven-compiler-plugin>3.8.1</version.maven-compiler-plugin>
+        <version.build-helper-maven-plugin>3.2.0</version.build-helper-maven-plugin>
+        
+  </properties>
+  
+  
+  <dependencies>
+  		
+  		<!-- SureThing Core... -->
+  		<dependency>
+  				<groupId>eu.surething_project.core</groupId>
+  				<artifactId>surething-data-core</artifactId>
+  				<version>0.0.1</version>
+  				<scope>compile</scope>  				
+  		</dependency>
+  		
+  		<!-- JUnit -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.6.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Jakarta XML Binding -->
+        <dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+
+	  <dependency>
+		  <groupId>io.grpc</groupId>
+		  <artifactId>grpc-protobuf</artifactId>
+		  <version>1.44.1</version>
+	  </dependency>
+  		
+  </dependencies>
+  
+  <build>
+  		
+  		<extensions>
+	       <!-- Extension/plug-in that generates various useful platform-dependent project properties normalized from ${os.name} and ${os.arch} -->
+	       <extension>
+	         <groupId>kr.motd.maven</groupId>
+	         <artifactId>os-maven-plugin</artifactId>
+	        </extension>
+	    </extensions>
+  		
+  		
+  		<plugins>
+				<!-- Plug-in used to compile the sources of your project. Java 9 requires 
+					at least version 3.7.0 to properly handle modules. -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${version.maven-compiler-plugin}</version>
+					<configuration>
+						<source>${version.java}</source>
+						<target>${version.java}</target>
+					</configuration>
+				</plugin>
+			</plugins>
+  		
+  </build>
+  
+  
+</project>
